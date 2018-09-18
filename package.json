@@ -1,0 +1,22 @@
+{
+  "name": "node-capstone",
+  "version": "1.0.0",
+  "description": "app to track time spent",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LanceLe25/node-capstone.git"
+  },
+  "author": "Lance Le",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LanceLe25/node-capstone/issues"
+  },
+  "homepage": "https://github.com/LanceLe25/node-capstone#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
