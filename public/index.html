@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="An app for tracking your time spent">
+	<title>Time tracker</title>
+	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+	<link rel="stylesheet" href="style.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+	<script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script src="client.js"></script>
+</head>
+
+<body>
+
+	<section class="homepage-header">
+		<header role="banner">
+			<h1>Earn Time</h1>
+		</header>
+	</section>
+
+	<main role="main">
+		<section class="sign-up-home-page">
+			<div class="homepage-info">
+				<p>Find out where your time is going.</p>
+			</div>
+			<form class="sign-up-form">
+				<legend>Sign Up</legend>
+				<fieldset>
+					<label for="sign-up-name">Name</label>
+					<input type="sign-up-name" placeholder="Kenny Smith">
+					<label for="sign-up-username">Email</label>
+					<input type="sign-up-username" placeholder="kennysmith@gmail.com" >
+					<label for="password">Password</label>
+					<input type="password">
+				</fieldset>
+				<button type="submit" class="sign-up-button">Sign Up</button>
+				<br>
+				<p class="log-in-form-page">Already have an account? <button class="change-form-login">Login</button></p>
+
+		</section>
+
+		<section class="login-home-page" hidden>
+			<form class="login-form">
+				<legend>Login</legend>
+				<fieldset>
+					<label for="login-name">Name</label>
+					<input type="name" class="login-name" placeholder="Kenny Smith">
+					<label for="login-username">Email</label>
+					<input type="email" class="login-username">
+					<<label for="login-password">Password</label>
+					<input type="password" class="login-password">
+				</fieldset>
+				<button type="submit" class="submit-button">Login</button>
+				<br>
+				<p>Need to <button class="change-form-sign-up">Sign Up</button>
+			</form>		
+		</section>
+
+
+	</main>
+
+</body>
+</html>

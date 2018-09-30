@@ -1,0 +1,70 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background:url(images/time.jpg)no-repeat center center fixed;
+	background-size: cover;
+}
+
+body {
+	color: white;
+}
+
+.sign-up-form {
+	background: #FFFF;
+	max-width: 300px;
+	text-align: center;
+	font-size: 0.8em;
+	color: black;
+	vertical-align: middle;
+	margin: auto;
+	font-weight: 800;
+	padding: 20px 0;
+	border-radius: 10px;
+}
+
+.sign-up-form legend {
+	margin: 10px 0;
+	font-size: 2em;
+	padding: 10px;
+}
+
+.sign-up-form fieldset {
+	border: none;
+	text-align: left;
+}
+
+.sign-up-form input {
+	width: 100%;
+	margin: 10px auto 20px;
+	padding: 10px;
+	font-size: 1.2em;
+	border-color: black;
+
+}
+
+.sign-up-button {
+	width: 33.3%;
+	padding: 5px;
+	border-radius: 5px;
+	background-color:#4b0082;
+	color: #FFFF;
+	font-size: 1.3em;
+}
+
+.login-form-page {
+
+}
+
+
+h1 {
+	font-family: 'Oswald', san-serif;
+	text-align: center;
+	font-size: 50px;
+}
+
+.homepage-info p {
+	text-align: center;
+	font-size: 20px;
+}
