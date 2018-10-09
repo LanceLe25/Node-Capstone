@@ -1,5 +1,7 @@
 * {
 	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 html {
@@ -9,33 +11,35 @@ html {
 
 body {
 	color: white;
+	font-family: 'Oswald', san-serif;
 }
 
-.sign-up-form {
+
+.sign-up-form, .login-form {
 	background: #FFFF;
 	max-width: 300px;
 	text-align: center;
 	font-size: 0.8em;
 	color: black;
 	vertical-align: middle;
-	margin: auto;
+	margin: 50px auto;
 	font-weight: 800;
-	padding: 20px 0;
+	padding: 20px 10px;
 	border-radius: 10px;
 }
 
-.sign-up-form legend {
+.sign-up-form legend, .login-form legend {
 	margin: 10px 0;
 	font-size: 2em;
 	padding: 10px;
 }
 
-.sign-up-form fieldset {
+.sign-up-form fieldset, .login-form fieldset {
 	border: none;
 	text-align: left;
 }
 
-.sign-up-form input {
+.sign-up-form input, .login-form input {
 	width: 100%;
 	margin: 10px auto 20px;
 	padding: 10px;
@@ -44,27 +48,177 @@ body {
 
 }
 
-.sign-up-button {
+.sign-up-button, .login-button {
 	width: 33.3%;
 	padding: 5px;
 	border-radius: 5px;
-	background-color:#4b0082;
+	background-color:#0099BF;
 	color: #FFFF;
 	font-size: 1.3em;
+	border: none;
+	margin: 10px;
 }
 
-.login-form-page {
-
-}
-
-
-h1 {
-	font-family: 'Oswald', san-serif;
+header h1 {
 	text-align: center;
-	font-size: 50px;
+	font-size: 4em;
 }
 
 .homepage-info p {
 	text-align: center;
-	font-size: 20px;
+	font-size: 60px;
+}
+
+.landing-block {
+	padding: 3rem;
+	text-align: center;
+}
+
+#landing-page h2 {
+	text-align: center;
+	font-size: 28px;
+	margin: 20px auto; 
+}
+
+.landing-text {
+	font-size: 24px;
+	text-align: center;
+	padding: 10px;
+	display: inline-block;
+	width: 40%;
+	vertical-align: middle;
+}
+
+.landing-image {
+	text-align: center;
+	padding: 20px;
+	display: inline-block;
+	width: 40%;
+	vertical-align: middle;
+}
+
+#account-setup-page h1 {
+	text-align: center;
+	font-size: 3rem;
+}
+
+.account-setup-text {
+	padding: 20px;
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.activity-form {
+	background: #FFFF;
+	max-width: 300px;
+	text-align: center;
+	font-size: 0.8em;
+	color: black;
+	vertical-align: middle;
+	margin: 50px auto;
+	font-weight: 800;
+	padding: 20px 10px;
+	border-radius: 10px;
+}
+
+.activity-form legend{
+	font-size: 2em;
+	padding: 10px;
+}
+
+.activity-form fieldset {
+	text-align: left;
+}
+
+.activity-form input {
+	width: 100%;
+	margin: 10px auto 20px;
+	padding: 10px;
+	font-size: 1.2em;
+	border-color: black;
+}
+
+.activity-button, .add-activity {
+	width: 33.3%;
+	padding: 5px;
+	border-radius: 5px;
+	background-color:#0099BF;
+	color: #FFFF;
+	font-size: 1.3em;
+	border: none;
+	margin: 10px;
+}
+
+#user-homepage h1, #user-homepage h2 {
+	text-align: center;
+	font-size: 3rem;
+	margin: 10px;
+}
+
+#user-homepage li a {
+	text-decoration: none;
+	display: inline-block;
+	color: white;
+	padding: 30px;
+}
+
+#user-homepage ul {
+	padding: 10px;
+	text-align: center;
+}
+
+#user-homepage li a:hover {
+	color:#0099BF;
+}
+
+.option {
+	text-align: center;
+
+}
+
+.option li {
+	display: inline;
+	font-size: 3rem;
+}
+
+#container {
+	width: 50%;
+	height: 500px;
+	margin: 0 auto;
+	padding: 50px;
+}
+
+footer {
+	text-align: center;
+	list-style: none;
+	font-size: 2rem;
+}
+
+footer ul li a {
+	text-decoration: none;
+	color: white;
+}
+
+footer ul li p {
+	color: white;
+}
+
+@media only screen and (max-width: 800px) {
+	.landing-text {
+		font-size: 22px;
+	}
+
+	.landing-image {
+		display: block;
+		margin: 0 auto;
+	}
+
+}
+
+@media only screen and (max-width: 375px) {
+	header {
+		font-size: 0.7em;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }

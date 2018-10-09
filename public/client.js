@@ -1,50 +1,27 @@
-'use strict'
+anychart.onDocumentReady(function() {
 
-function signUp() {
+  // set the data
+  var data = [
+      {x: "Sleep", value: 8},
+      {x: "Work", value: 8},
+      {x: "Commute", value: 1},
+      {x: "Spend Time with Family", value: 3},
+      {x: "Work From Home", value: 4},
+  ];
 
-$('.sign-up-button').submit(function(event) {
-	event.preventDefault();
-	const name = $('.sign-up-name').val();
-	const username = $('.sign-up-username').val();
-	const password = $('.sign-up-password').val();
+  // create the chart
+  var chart = anychart.pie();
 
-	if (name == "") {
-		alert('Please add a name');
-	}
-	else if(username =="") {
-		alert('Please add a username');
-	}
-	else if (password == "") {
-		alert('Please add a password');
-	}
+  // set the chart title
+  chart.title("Friday, October 6th, 2018");
 
-	else {
-		const newUserObject = {
-			name: name,
-			username: username,
-			password: password
-		};
+  // add the data
+  chart.data(data);
 
-		$.ajax({
-			type: 'POST',
-			url: '/users/create',
-			dataType: 'json',
-			data: JSON.stringify(newUserObject),
-			contentType: 'application/json'
-		})
 
-		.done(function(result) {
-			console.log('working');
-			$('.login-home-page').show();
-			$('.sign-up-home-page').hide();
-		})
-		.fail(function (jqXHR, error, errorThrown) {
-			console.log(jqXHR);
-			console.log(error);
-			console.log(errorThrown);
-		});
-	};
+
+  // display the chart in the container
+  chart.container('container');
+  chart.draw();
 });
-}
-$(signUp());
 

@@ -5,30 +5,39 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="An app for tracking your time spent">
 	<title>Time tracker</title>
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
 	<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-
-	<link rel="stylesheet" href="style.css">
-	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
 	<script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+     <script src="https://cdn.anychart.com/js/8.0.1/anychart-core.min.js"></script>
+     <script src="https://cdn.anychart.com/js/8.0.1/anychart-pie.min.js"></script>
     <script src="client.js"></script>
 </head>
 
 <body>
 
-	<section class="homepage-header">
-		<header role="banner">
-			<h1>Earn Time</h1>
-		</header>
-	</section>
+	<header role="banner">
+		<h1>Time is Ticking</h1>
+	</header>
 
-	<main role="main">
-		<section class="sign-up-home-page">
-			<div class="homepage-info">
-				<p>Find out where your time is going.</p>
+	<main>
+
+		<section id="landing-page">
+			<h2>Find out where your time is going.</h2>
+			<div class="landing-block">
+				<div class="landing-text"><p>"Time is free but it is priceless, You can't own it, but you can use it. You can't keep it but you can spend it. Once you've lost it you can never get it back"</p>
+				<br>
+				<p>-Harvey Mackay</p></div>
+				<div class="landing-image">
+				<img src="images/somanythings.jpg">
+				</div>
 			</div>
+		</section>
+
+		<section id="signup-page">
 			<form class="sign-up-form">
 				<legend>Sign Up</legend>
 				<fieldset>
@@ -41,29 +50,69 @@
 				</fieldset>
 				<button type="submit" class="sign-up-button">Sign Up</button>
 				<br>
-				<p class="log-in-form-page">Already have an account? <button class="change-form-login">Login</button></p>
-
+				<p class="log-in-form-page">Already have an account? <button class="change-form-login" style="border: none">Login</button></p>
+			</form>
 		</section>
 
-		<section class="login-home-page" hidden>
-			<form class="login-form">
-				<legend>Login</legend>
-				<fieldset>
-					<label for="login-name">Name</label>
-					<input type="name" class="login-name" placeholder="Kenny Smith">
-					<label for="login-username">Email</label>
-					<input type="email" class="login-username">
-					<<label for="login-password">Password</label>
-					<input type="password" class="login-password">
-				</fieldset>
-				<button type="submit" class="submit-button">Login</button>
-				<br>
-				<p>Need to <button class="change-form-sign-up">Sign Up</button>
-			</form>		
+		<section id="login-page">
+			<div class="login-home-page">
+				<form class="login-form">
+					<legend>Login</legend>
+					<fieldset>
+						<label for="login-name">Name</label>
+						<input type="name" class="login-name" placeholder="Kenny Smith">
+						<label for="login-username">Email</label>
+						<input type="email" class="login-username" placeholder="kennysmith@gmail.com">
+						<label for="login-password">Password</label>
+						<input type="password" class="login-password">
+					</fieldset>
+					<button type="submit" class="login-button">Login</button>
+					<br>
+					<p>Need to <button class="change-form-sign-up" style="border: none">Sign Up?</button></p>
+				</form>
+			</div>		
 		</section>
 
+	<section id="account-setup-page">
+		<h1>Time is our greatest asset.</h1>
+		<div class="account-setup-text">
+			<p>Instead of saying you're busy, or you don't have any time. Visualize what you're spending your time on and earn time for what you would like to do most.</p>
+		</div>
+		<form class="activity-form">
+			<legend>Add Time and Activity</legend>
+			<fieldset style="border: none">
+				<label for="text" class="activity-text">Activity:</label>
+				<input type="text" placeholder="Sleep">
+				<label for="time" class="activity-start-time">From:</label>
+				<input type="time">
+				<label for="time" class="activity-end-time">To:</label>
+				<input type="time">
+				<label for="date" class="activity="date">Date:</label>
+				<input type="date">
+			</fieldset>
+			<button type="submit" class="add-activity">Add Another</button>
+			<button type="submit" class="activity-button">Submit</button>
+		</form>
+	</section>
+
+		<section id="user-homepage">
+			<h1>Welcome!</h1>
+			<ul class="option">
+				<li><a href="#">Day</li>
+				<li><a href="#">Week</li>
+				<li><a href="#">Month</li>
+			</ul>
+			<div id="container"></div>
+		</section>
 
 	</main>
 
+	<footer>
+		<ul>
+			<li><p>Lance Le</p></li>
+			<li><a href="https://www.github.com/LanceLe25">Github</li>
+			<li><a href="mailto:akalenzo@yahoo.com?Subject="Hi">Email</li>
+		</ul>
+	</footer>
 </body>
 </html>
