@@ -1,7 +1,46 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+    /*reset Firefox user agent styles*/
+    -moz-margin-before: 0px;
+    -moz-margin-after: 0px;
+    -moz-margin-start: 0px;
+    -moz-margin-end: 0px;
+    -moz-padding-before: 0px;
+    -moz-padding-after: 0px;
+    -moz-padding-start: 0px;
+    -moz-padding-end: 0px;
+    /*reset Internet Explorer user agent styles*/
+    -ms-margin-before: 0px;
+    -ms-margin-after: 0px;
+    -ms-margin-start: 0px;
+    -ms-margin-end: 0px;
+    -ms-padding-before: 0px;
+    -ms-padding-after: 0px;
+    -ms-padding-start: 0px;
+    -ms-padding-end: 0px;
+    /*reset Opera user agent styles*/
+    -o-margin-before: 0px;
+    -o-margin-after: 0px;
+    -o-margin-start: 0px;
+    -o-margin-end: 0px;
+    -o-padding-before: 0px;
+    -o-padding-after: 0px;
+    -o-padding-start: 0px;
+    -o-padding-end: 0px;
 }
 
 html {
@@ -44,7 +83,7 @@ body {
 	margin: 10px auto 20px;
 	padding: 10px;
 	font-size: 1.2em;
-	border-color: black;
+	border: 2px black solid;
 
 }
 
@@ -135,7 +174,7 @@ header h1 {
 	margin: 10px auto 20px;
 	padding: 10px;
 	font-size: 1.2em;
-	border-color: black;
+	border: 2px black solid;
 }
 
 .activity-button, .add-activity {
@@ -160,6 +199,7 @@ header h1 {
 	display: inline-block;
 	color: white;
 	padding: 30px;
+	border: 5px solid;
 }
 
 #user-homepage ul {
@@ -169,10 +209,12 @@ header h1 {
 
 #user-homepage li a:hover {
 	color:#0099BF;
+	background-color: #FFFF;
 }
 
 .option {
 	text-align: center;
+
 
 }
 
@@ -194,6 +236,11 @@ footer {
 	font-size: 2rem;
 }
 
+footer ul li {
+	display: inline;
+	width: auto;
+}
+
 footer ul li a {
 	text-decoration: none;
 	color: white;
@@ -201,6 +248,8 @@ footer ul li a {
 
 footer ul li p {
 	color: white;
+	margin-bottom: 5px;
+	display: block;
 }
 
 @media only screen and (max-width: 800px) {
@@ -211,6 +260,11 @@ footer ul li p {
 	.landing-image {
 		display: block;
 		margin: 0 auto;
+		width: 100%;
+	}
+
+	#container {
+		width: 75%;
 	}
 
 }
@@ -220,5 +274,54 @@ footer ul li p {
 		font-size: 0.7em;
 		margin-right: auto;
 		margin-left: auto;
+	}
+
+		.landing-text {
+		font-size: 16px;
+		padding: 5px;
+	}
+
+	.landing-image {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	#user-homepage h1 {
+		font-size: 2em;
+	}
+
+	footer {
+		font-size: 1em;
+	}
+}
+
+@media only screen and (max-width: 530px) {
+	.landing-text {
+		font-size: 16px;
+		padding: 5px;
+	}
+
+	.landing-image {
+		display: block;
+		margin: 0 auto;
+		width: 100%;
+	}
+
+	#container {
+		width: 100%;
+		height: 400px;
+	}
+
+	.option li {
+		font-size: 2em;
+	}
+
+	#user-homepage li a {
+		padding: 10px;
+	}
+
+	footer {
+		font-size: 1em;
 	}
 }

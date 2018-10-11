@@ -25,3 +25,57 @@ anychart.onDocumentReady(function() {
   chart.draw();
 });
 
+// starting function
+$(function () {
+	$('#login-page').hide();
+	$('#account-setup-page').hide();
+	$('#activity-form').hide();
+	$('#user-homepage').hide();
+});
+
+$('.sign-up-form').submit(function (event) {
+	event.preventDefault();
+	const name = $('#sign-up-name').val();
+	const username = $('#sign-up-username').val();
+	const password = $('#sign-up-password').val();
+
+	if(name == "") {
+		alert('Please add a name');
+	}
+	else if (username == "") {
+		alert('Please add a email');
+	}
+	else if(password == "") {
+		alert('Please add a password');
+	}
+	else {
+		const newUser = {
+			name: name,
+			username: username,
+			password: password
+		};
+
+		$.ajax({
+			type: 'POST',
+			url: '/users/create',
+			dataType: 'json',
+			data: JSON.stringify(newUser),
+			contentType: 'application/json'
+		})
+		.done(function (result) {
+			console.log(result)
+		})
+
+		.fail(function(jqXHR, error, errorThrown) {
+			console.log(jqXHR);
+			console.log(error);
+			console.log(errorThrown);
+		});
+	};
+});
+
+$('.change-form-login').click(function (event) {
+	event.preventDefault();
+	$('#login-page').show();
+	$('#signup-page').hide();
+})
