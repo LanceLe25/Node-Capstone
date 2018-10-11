@@ -31,7 +31,14 @@ $(function () {
 	$('#account-setup-page').hide();
 	$('#activity-form').hide();
 	$('#user-homepage').hide();
+	$('#signup-page').hide();
 });
+
+$('#to-sign-in-page').click(function (event) {
+	event.preventDefault();
+	$('#landing-page').hide();
+	$('#signup-page').show();
+})
 
 $('.sign-up-form').submit(function (event) {
 	event.preventDefault();
@@ -79,3 +86,65 @@ $('.change-form-login').click(function (event) {
 	$('#login-page').show();
 	$('#signup-page').hide();
 })
+
+$('.login-form').submit(function (event) {
+	event.preventDefault();
+
+	const username = $('.login-name').val();
+	const password = $('.login-password').val();
+
+	if(username == "") {
+		alert('Please enter a username');
+	}
+	else if(password == "") {
+		alert('Please enter a password');
+	}
+	else {
+		const login = {
+			username: username,
+			password: password
+		}
+	}
+
+	$.ajax({
+		type: 'POST',
+		url: '/users/login',
+		dataType: 'json',
+		data: JSON.stringify(login),
+		contentType: 'application/json'
+	})
+
+	.done(function (result) {
+		console.log(result);
+		$('#login-page').hide();
+		$('#account-setup-page').show();
+		$('#activity-form').show();
+		$('#user-homepage').show();
+	})
+
+	.fail(function (jqXHR, error, errorThrown) {
+		console.log(jqXHR);
+		console.log(error);
+		console.log(errorThrown);
+	}); 
+});
+
+$('.change-form-sign-up').click(function (event) {
+	event.preventDefault();
+	$('#login-page').hide();
+	$('#signup-page').show();
+});
+
+$('#home-button').click(function (event) {
+	event.preventDefault();
+	$('section').hide();
+	$('#user-homepage').show();
+});
+
+$('#add-activity').click(function (event) {
+	event.preventDefault();
+	$('section').hide();
+	$('#account-setup-page').show();
+})
+
+

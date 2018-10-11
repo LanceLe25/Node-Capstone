@@ -18,8 +18,16 @@
 
 	<main>
 
+		<nav>
+			<ul>
+				<li><a href="#" id="home-button">Home |</a></li>
+				<li><a href="#" id="add-activity">Add Activity |</a></li>
+				<li><a href="#" id="log-out-button">Log Out</a></li>
+			</ul>
+		</nav>
+
 		<section id="landing-page">
-			<h2>Find out where your time is going.</h2>
+			<h2 id="to-sign-in-page"><a href="#">Click here to find out where your time is going.</a></h2>
 			<div class="landing-block">
 				<div class="landing-text"><p>"Time is free but it is priceless, You can't own it, but you can use it. You can't keep it but you can spend it. Once you've lost it you can never get it back"</p>
 				<br>
@@ -35,11 +43,11 @@
 				<legend>Sign Up</legend>
 				<fieldset>
 					<label for="sign-up-name">Name</label>
-					<input type="sign-up-name" placeholder="Kenny Smith">
+					<input type="sign-up-name" id="sign-up-name" placeholder="Kenny Smith">
 					<label for="sign-up-username">Email</label>
-					<input type="sign-up-username" placeholder="kennysmith@gmail.com" >
+					<input type="sign-up-username" id ="sign-up-username"placeholder="kennysmith@gmail.com" >
 					<label for="password">Password</label>
-					<input type="password">
+					<input type="password" id="sign-up-password">
 				</fieldset>
 				<button type="submit" class="sign-up-button">Sign Up</button>
 				<br>
@@ -52,8 +60,6 @@
 				<form class="login-form">
 					<legend>Login</legend>
 					<fieldset>
-						<label for="login-name">Name</label>
-						<input type="name" class="login-name" placeholder="Kenny Smith">
 						<label for="login-username">Email</label>
 						<input type="email" class="login-username" placeholder="kennysmith@gmail.com">
 						<label for="login-password">Password</label>
@@ -83,7 +89,7 @@
 				<label for="date" class="activity="date">Date:</label>
 				<input type="date">
 			</fieldset>
-			<button type="submit" class="add-activity">Add Another</button>
+			<button type="submit" class="add-another">Add Another</button>
 			<button type="submit" class="activity-button">Submit</button>
 		</form>
 	</section>
