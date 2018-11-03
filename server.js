@@ -6,10 +6,12 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const bcrypt = require("bcryptjs");
 const config = require("./config.js");
+const cors = require("cors");
 
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 app.use(express.static("public"));
 
 mongoose.Promise = global.Promise;
@@ -53,7 +55,7 @@ function closeServer() {
 app.listen(process.env.PORT || 8080);
 
 //signing in the user
-app.post('/users/login', (res, req) => {
+app.post('/users/login', (req, res) => {
 	const username = req.body.username;
 	const password = req.body.password;
 

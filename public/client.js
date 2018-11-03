@@ -99,7 +99,7 @@ $('.change-form-login').click(function (event) {
 $('.login-form').submit(function (event) {
 	event.preventDefault();
 
-	const username = $('.login-name').val();
+	const username = $('.login-username').val();
 	const password = $('.login-password').val();
 
 	if(username == "") {
