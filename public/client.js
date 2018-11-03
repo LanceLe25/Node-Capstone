@@ -27,19 +27,24 @@ anychart.onDocumentReady(function() {
 
 // starting function
 $(function () {
-	$('#login-page').hide();
-	$('#account-setup-page').hide();
-	$('#activity-form').hide();
-	$('#user-homepage').hide();
-	$('#signup-page').hide();
+	$('section').hide();
+	$('#landing-page').show();
 });
 
+// header refreshes the page
+$('header').click(function (event) {
+	event.preventDefault();
+	location.reload();
+})
+
+//to go to sign up page
 $('#to-sign-in-page').click(function (event) {
 	event.preventDefault();
 	$('#landing-page').hide();
 	$('#signup-page').show();
 })
 
+//submit sign in form
 $('.sign-up-form').submit(function (event) {
 	event.preventDefault();
 	const name = $('#sign-up-name').val();
@@ -71,6 +76,7 @@ $('.sign-up-form').submit(function (event) {
 		})
 		.done(function (result) {
 			console.log(result)
+			$('nav').show();
 		})
 
 		.fail(function(jqXHR, error, errorThrown) {
@@ -81,12 +87,15 @@ $('.sign-up-form').submit(function (event) {
 	};
 });
 
+
+// go to login page from sign up page
 $('.change-form-login').click(function (event) {
 	event.preventDefault();
 	$('#login-page').show();
 	$('#signup-page').hide();
 })
 
+// submitting login form
 $('.login-form').submit(function (event) {
 	event.preventDefault();
 
@@ -104,7 +113,6 @@ $('.login-form').submit(function (event) {
 			username: username,
 			password: password
 		}
-	}
 
 	$.ajax({
 		type: 'POST',
@@ -120,27 +128,33 @@ $('.login-form').submit(function (event) {
 		$('#account-setup-page').show();
 		$('#activity-form').show();
 		$('#user-homepage').show();
+		$('nav').show();
 	})
 
 	.fail(function (jqXHR, error, errorThrown) {
 		console.log(jqXHR);
 		console.log(error);
 		console.log(errorThrown);
-	}); 
+	});
+} 
 });
 
+
+//change to sign up page from login page
 $('.change-form-sign-up').click(function (event) {
 	event.preventDefault();
 	$('#login-page').hide();
 	$('#signup-page').show();
 });
 
+// home button in nav
 $('#home-button').click(function (event) {
 	event.preventDefault();
 	$('section').hide();
 	$('#user-homepage').show();
 });
 
+// add activity buton in nav
 $('#add-activity').click(function (event) {
 	event.preventDefault();
 	$('section').hide();
