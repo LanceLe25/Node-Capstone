@@ -52,7 +52,7 @@ function closeServer() {
     }));
 }
 
-app.listen(process.env.PORT || 8080);
+
 
 //signing in the user
 app.post('/users/login', (req, res) => {
@@ -95,4 +95,47 @@ app.post('/users/login', (req, res) => {
 	});
 });
 
-module.exports = app; 
+//creating a new user
+app.post('/users/create', (req,res) => {
+
+//taking the name username and password from the api call
+	let name = req.body.name;
+	let username = req.body.username;
+	let password = req.body.password;
+
+//trimming down the username and password so there are no spaces
+	username = username.trim();
+	password = password.trim();
+
+//create the encryption for the password
+	bcrpyt.genSalt(10, (err, salt) => {
+		if(err) {
+			return res.status(500).json({
+				message: 'Internal server error'
+			});
+		}
+
+		User.create({
+			name,
+			username,
+			password: hash,
+		}, (err, item) => {
+
+			if(err) {
+				return res.status(500).json({
+					message: 'Internal Server error'
+				});
+			}
+
+			if(item) {
+				console.log(`User ${username} created`);
+				return res.json.item();
+			}
+		});
+
+	});
+})
+
+exports.app = app; 
+exports.runServer = runServer;
+exports.closeServer = closeServer;
