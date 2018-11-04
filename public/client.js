@@ -125,6 +125,7 @@ $('.login-form').submit(function (event) {
 	.done(function (result) {
 		console.log(result);
 		$('#login-page').hide();
+		$('#loggedInUserName').val(result.username);
 		$('#account-setup-page').show();
 		$('#activity-form').show();
 		$('#user-homepage').show();

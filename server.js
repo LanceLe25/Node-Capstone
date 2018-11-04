@@ -1,6 +1,6 @@
 "use strict";
 
-const user = require("./models/user")
+const User = require("./models/user")
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -77,7 +77,9 @@ app.post('/users/login', (req, res) => {
 		else {
 			items.validatePassword(password, function (err, isValid) {
 				if(err) {
-					console.log("Could not connect to DB to validate password");
+					return res.status(401).json({
+					message: "connection to db to validate password failed"
+					});
 				}
 
 				if(!isValid) {
@@ -96,45 +98,67 @@ app.post('/users/login', (req, res) => {
 });
 
 //creating a new user
-app.post('/users/create', (req,res) => {
+app.post('/users/create', (req, res) => {
 
-//taking the name username and password from the api call
-	let name = req.body.name;
-	let username = req.body.username;
-	let password = req.body.password;
+    //take the name, username and the password from the ajax api call
+    let name = req.body.name;
+    let username = req.body.username;
+    let password = req.body.password;
 
-//trimming down the username and password so there are no spaces
-	username = username.trim();
-	password = password.trim();
+    //exclude extra spaces from the username and password
+    username = username.trim();
+    password = password.trim();
 
-//create the encryption for the password
-	bcrpyt.genSalt(10, (err, salt) => {
-		if(err) {
-			return res.status(500).json({
-				message: 'Internal server error'
-			});
-		}
+    //create an encryption key
+    bcrypt.genSalt(10, (err, salt) => {
 
-		User.create({
-			name,
-			username,
-			password: hash,
-		}, (err, item) => {
+        //if creating the key returns an error...
+        if (err) {
 
-			if(err) {
-				return res.status(500).json({
-					message: 'Internal Server error'
-				});
-			}
+            //display it
+            return res.status(500).json({
+                message: 'Internal server error'
+            });
+        }
 
-			if(item) {
-				console.log(`User ${username} created`);
-				return res.json.item();
-			}
-		});
+        //using the encryption key above generate an encrypted pasword
+        bcrypt.hash(password, salt, (err, hash) => {
 
-	});
-})
+            //if creating the ncrypted pasword returns an error..
+            if (err) {
+
+                //display it
+                return res.status(500).json({
+                    message: 'Internal server error'
+                });
+            }
+
+            //using the mongoose DB schema, connect to the database and create the new user
+            User.create({
+                name,
+                username,
+                password: hash,
+            }, (err, item) => {
+
+                //if creating a new user in the DB returns an error..
+                if (err) {
+                    //display it
+                    return res.status(500).json({
+                        message: 'Internal Server Error'
+                    });
+                }
+                //if creating a new user in the DB is succefull
+                if (item) {
+
+                    //display the new user
+                    console.log(`User \`${username}\` created.`);
+                    return res.json(item);
+                }
+            });
+        });
+    });
+});
+
 
 exports.app = app; 
 exports.runServer = runServer;
